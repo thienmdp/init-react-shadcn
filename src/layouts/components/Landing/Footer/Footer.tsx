@@ -6,34 +6,28 @@ const Footer = () => {
   return (
     <footer className='w-full'>
       <div className='px-4 mx-auto max-w-7xl'>
-        <div className='grid grid-cols-1 gap-3 py-10 mx-auto max-w-md sm:grid-cols-3 lg:grid-cols-4 md:gap-12 sm:max-w-3xl lg:max-w-full'>
-          <div className='col-span-full mb-10 lg:col-span-2 lg:mb-0'>
+        <div className='grid max-w-md grid-cols-1 gap-3 py-10 mx-auto sm:grid-cols-3 lg:grid-cols-4 md:gap-12 sm:max-w-3xl lg:max-w-full'>
+          <div className='mb-10 col-span-full lg:col-span-2 lg:mb-0'>
             <div>
-              <img
-                src='/assets/svg/diagnosisiq.svg'
-                height={200}
-                width={200}
-                alt='logo'
-                className='mx-auto mb-6 bg-cover'
-              />
+              <p className='text-2xl font-bold cursor-pointer text-blue_app'>BRANCH</p>
               <div className='text-neutral-800'>
                 <p className='mt-8 break-words text-neutral-800'>
                   <span className='font-semibold'>Diagnosis IQ </span> Smart Clinical Decision Support System for
                   Automated Hospital.
                 </p>
-                <p className='mt-4'>
-                  <Mail className='mr-2' />
+                <p className='flex items-center mt-2'>
+                  <Mail className='w-4 mr-2' />
                   mail@gmail.com
                 </p>
-                <p className=''>
-                  <Phone className='mr-2' />
+                <p className='flex items-center '>
+                  <Phone className='w-4 mr-2' />
                   0977 777 777
                 </p>
-                <Link className='' to='diagnosisiq.com' target='_blank' rel='noopener noreferrer'>
-                  <Globe className='mr-2' />
+                <Link className='flex items-center ' to='diagnosisiq.com' target='_blank' rel='noopener noreferrer'>
+                  <Globe className='w-4 mr-2' />
                   diagnosisiq.com
                 </Link>
-                <p className='mt-2'>
+                <p className='flex items-center mt-2'>
                   <span className='font-semibold'>Địa chỉ:</span> 123 Nguyễn Văn Cừ, phường 6, quận 3, Hồ Chí Minh
                 </p>
               </div>
@@ -60,12 +54,6 @@ const Footer = () => {
                     Chính sách vận chuyển, giao nhận
                   </a>
                 </li>
-
-                {/* <li>
-                  <a rel='noopener noreferrer' className='text-sm' href={path.policy_tiepnhanvakhieunai}>
-                    Quy trình tiếp nhận & khiếu nại
-                  </a>
-                </li> */}
                 <li>
                   <a rel='noopener noreferrer' className='text-sm' href={path.landing}>
                     Chính sách đổi trả, hoàn tiền
@@ -80,17 +68,12 @@ const Footer = () => {
               <h3 className='mb-4 font-medium tracking-wide uppercase dark:text-gray-900'>Về chúng tôi</h3>
               <ul className='space-y-1'>
                 <li>
-                  <a rel='noopener noreferrer' className='text-sm' href='https://diagnosisiq.org.vn/' target='_blank'>
-                    Diagnosis IQ
-                  </a>
-                </li>
-                <li>
-                  <a rel='noopener noreferrer' className='text-sm' href='#'>
+                  <a rel='noopener noreferrer' className='text-sm' href={path.landing}>
                     Đội ngũ giảng viên
                   </a>
                 </li>
                 <li>
-                  <a rel='noopener noreferrer' className='text-sm' href='#'>
+                  <a rel='noopener noreferrer' className='text-sm' href={path.landing}>
                     Liên hệ với chúng tôi
                   </a>
                 </li>

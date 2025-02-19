@@ -28,7 +28,6 @@ function DefaultLayoutInner({ children }: Props) {
     handleGoogleOneTap()
   }, [handleGoogleOneTap])
 
-  // Tách scroll handler ra
   const scrollToTop = useCallback(() => {
     scroll.scrollToTop({ duration: 300, smooth: true })
   }, [])
@@ -47,7 +46,6 @@ function DefaultLayoutInner({ children }: Props) {
   )
 }
 
-// Sử dụng memo với custom compare function
 const DefaultLayout = memo(DefaultLayoutInner, (prevProps, nextProps) => {
   return prevProps.children === nextProps.children
 })

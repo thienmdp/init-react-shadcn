@@ -8,6 +8,10 @@ import CardUser from '../../CardUser'
 import path from '@/constants/path'
 import { ModalSearch } from '../../Modal'
 import SearchHeader from './SearchHeader'
+import { useTranslation } from 'react-i18next'
+import { ModeToggleI18n } from '@/components/Global/mode-toggle-i18'
+import { cn } from '@/lib/utils'
+import { buttonVariants } from '@/components/ui/button'
 
 const Container = styled.div`
   .ant-drawer .antd-drawer-content-wrapper .antd-drawer-content .ant-drawer-body {
@@ -16,7 +20,7 @@ const Container = styled.div`
 `
 
 export const Header = () => {
-  // const { i18n, t } = useTranslation('landing')
+  const { i18n, t } = useTranslation('landing')
   const [scrollActive, setScrollActive] = useState(false)
   const user = useAppSelector((auth) => auth.authState.user)
 
@@ -46,74 +50,40 @@ export const Header = () => {
     >
       <nav className='bg-white border-gray-200'>
         <Container className='flex items-center justify-between px-6 py-4 mx-auto containerr max-w-screen-xl min-h-[70px]'>
-          <div className='flex justify-between items-center w-full md:justify-start'>
+          <div className='flex items-center justify-between w-full md:justify-start'>
             <MobileMenu />
             <Link
               to={path.landing}
               aria-label='logo_home'
-              className='flex items-center mr-4'
+              className='flex items-center text-2xl font-bold cursor-pointer text-blue_app'
               onClick={() => handleScrollToTop}
             >
-              <img src='/assets/svg/diagnosisiq.svg' height={120} width={120} alt='logo' />
+              BRANCH
             </Link>
             <ModalSearch />
-            <SearchHeader />
+            {/* <SearchHeader /> */}
           </div>
-          <div className='flex justify-end items-center text-sm'>
-            {/* I18N */}
-            {/* <Popover
-              content={
-                <>
-                  <div
-                    onClick={() => i18n.changeLanguage('en')}
-                    className='block py-1 text-sm text-gray-700 cursor-pointer hover:bg-gray-100'
-                  >
-                    <div className='inline-flex justify-center items-center w-full'>
-                      <img src='/assets/svg/icon_English.svg' alt='logo' width={24} height={24} className='mr-2' />
-                      <p className='min-w-[65px]'>English</p>
-                    </div>
-                  </div>
-                  <div
-                    onClick={() => i18n.changeLanguage('vi')}
-                    className='block py-1 text-sm text-gray-700 cursor-pointer hover:bg-gray-100'
-                  >
-                    <div className='inline-flex justify-center items-center w-full'>
-                      <img src='/assets/svg/icon_Vietnam.svg' alt='logo' width={24} height={24} className='mr-2' />
-                      <p className='min-w-[65px]'>Tiếng Việt</p>
-                    </div>
-                  </div>
-                </>
-              }
-              // title='Title'
-              trigger='hover'
-            >
-              <div className='relative p-2 mr-5 rounded-full transition duration-300 ease-in-out delay-150 cursor-pointer hover:bg-gray-200 hover:-translate-y-1 hover:scale-110'>
-                {i18n.language === 'vi' ? (
-                  <img src='/assets/svg/icon_Vietnam.svg' alt='logo' width={24} height={24} />
-                ) : (
-                  <img src='/assets/svg/icon_English.svg' alt='logo' width={24} height={24} />
-                )}
-              </div>
-            </Popover> */}
-            <ul className='hidden w-max md:flex'>
+          <div className='flex items-center justify-end text-sm'>
+            <ModeToggleI18n />
+            <ul className='hidden ml-4 w-max md:flex'>
               <li>
                 <Link
-                  className='mr-4 text-gray-700 cursor-pointer hover:text-blue_app'
+                  className='mr-4 text-gray-700 cursor-pointer hover:text-blue_app min-w-fit'
                   to={path.about}
                   onClick={() => handleScrollToTop}
                   aria-current='page'
                 >
-                  Về chúng tôi
+                  {t('header.about')}
                 </Link>
               </li>
               <li>
                 <Link
-                  className='mr-4 text-gray-700 cursor-pointer hover:text-blue_app'
-                  to={path.landing}
+                  className='mr-4 text-gray-700 cursor-pointer hover:text-blue_app min-w-fit'
+                  to={'#contact'}
                   onClick={() => handleScrollToTop}
                   aria-current='page'
                 >
-                  Tin tức
+                  {t('header.contact')}
                 </Link>
               </li>
             </ul>
@@ -122,11 +92,11 @@ export const Header = () => {
               {!user && (
                 <div className='flex items-center w-max'>
                   <Link
-                    className='flex justify-center items-center p-2 font-bold rounded-md border cursor-pointer text-blue_app border-blue_app hover:text-blue_app hover:bg-blue_app/10'
+                    className={cn(buttonVariants({ variant: 'gooeyLeft' }), '!rounded-full !px-3 !py-2 min-w-[98px]')}
                     to={path.signin}
                     onClick={() => handleScrollToTop}
                   >
-                    Đăng nhập
+                    {t('header.login')}
                   </Link>
                 </div>
               )}

@@ -114,7 +114,7 @@ export default function ModalSearch() {
                       {filterGlobal.data.courses.map((item) => (
                         <div
                           key={item.id}
-                          className='flex gap-2 items-center p-2 rounded-md cursor-pointer hover:bg-gray-50'
+                          className='flex items-center gap-2 p-2 rounded-md cursor-pointer hover:bg-gray-50'
                           onClick={() => handleItemClick('course', item)}
                         >
                           <BookOpen className='w-5 h-5 text-blue-600' />
@@ -135,7 +135,7 @@ export default function ModalSearch() {
                       {filterGlobal.data.seminars.map((item) => (
                         <div
                           key={item.id}
-                          className='flex gap-2 items-center p-2 rounded-md cursor-pointer hover:bg-gray-50'
+                          className='flex items-center gap-2 p-2 rounded-md cursor-pointer hover:bg-gray-50'
                           onClick={() => handleItemClick('seminar', item)}
                         >
                           <Avatar className='w-8 h-8'>
